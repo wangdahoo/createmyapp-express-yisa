@@ -30,5 +30,5 @@ node_modules
 npm-debug.log
 
 # css cache
-./app/public/css/*.css
-./app/public/css/*.css.map
+app/public/css/*.css
+app/public/css/*.css.map

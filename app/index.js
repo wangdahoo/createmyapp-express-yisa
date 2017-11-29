@@ -20,6 +20,8 @@ app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
+
+// sass
 app.use(require('node-sass-middleware')({
   src: path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
@@ -28,6 +30,8 @@ app.use(require('node-sass-middleware')({
   sourceMap: true,
   prefix: '/static'
 }))
+
+// static
 app.use('/static', express.static(path.join(__dirname, 'public')))
 
 app.use('/', index)
