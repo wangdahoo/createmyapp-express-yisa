@@ -24,5 +24,5 @@ module.exports = db.define('employee', {
   }
 }, {
   tableName: 'employee',
-  timestamps: false,
+  timestamps: false
 })

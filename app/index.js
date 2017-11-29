@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 
 const index = require('./routes/index')
 const user = require('./routes/user')
+const cal = require('./routes/cal')
 
 const app = express()
 
