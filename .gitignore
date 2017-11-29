@@ -32,3 +32,6 @@ npm-debug.log
 # css cache
 app/public/css/*.css
 app/public/css/*.css.map
+
+# docker volumes
+docker_volumes/
