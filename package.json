@@ -2,7 +2,7 @@
   "name": "createmyapp-express-yisa",
   "version": "0.1.0",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon --config .nodemonrc bin/www",
+    "dev": "DEBUG=createmyapp-express-yisa:* NODE_ENV=development nodemon --config .nodemonrc bin/www",
     "start": "node ./bin/www",
     "lint": "eslint --ext .js app bin/www"
   },
