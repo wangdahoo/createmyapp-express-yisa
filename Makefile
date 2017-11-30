@@ -6,7 +6,7 @@ default:
 	make mysql.rebuild
 
 mysql.install:
-	make mysql.rebuild	
+	make mysql.rebuild
 
 mysql.rebuild:
 	docker rm -vf $(mysql_deamon) || true
