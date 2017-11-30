@@ -5,7 +5,7 @@ const {connectionUri} = config[process.env.NODE_ENV === 'development' ? 'dev' : 
 // only development configurations for this moment
 module.exports = new Sequelize(connectionUri, {
   pool: {
-    max: 5,
+    max: 40,
     min: 0,
     acquire: 30000,
     idle: 10000
