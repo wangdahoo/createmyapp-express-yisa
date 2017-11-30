@@ -5,9 +5,10 @@
     "dev": "DEBUG=createmyapp-express-yisa:* NODE_ENV=development nodemon --config .nodemonrc bin/www",
     "start": "node ./bin/www",
     "lint": "eslint --ext .js app bin/www",
-    "test": "NODE_ENV=development jest"
+    "test": "NODE_ENV=development jest --forceExit"
   },
   "pre-commit": [
+    "test",
     "lint"
   ],
   "dependencies": {
