@@ -10,6 +10,9 @@ install:
 	make mysql.rebuild
 	make redis.rebuild
 
+data:
+	make mysql.data
+
 mysql.install:
 	make mysql.rebuild
 	
@@ -38,6 +41,9 @@ mysql.stop:
 mysql.data:
 	mysql -f -h127.0.0.1 -P$(mysql_port) -uroot < ./sqls/demo.sql
 	mysql -f -h127.0.0.1 -P$(mysql_port) -uroot < ./sqls/demo_data.sql
+
+redis.install:
+	make redis.rebuild
 	
 redis.rebuild:
 	docker rm -vf $(redis_deamon) || true
@@ -46,3 +52,14 @@ redis.rebuild:
 	@echo "正在启动redis，请耐心等待..."
 	sleep 10
 	docker ps -a | grep $(redis_deamon)
+
+redis.restart:
+	make redis.stop
+
+	@echo "正在启动redis，请耐心等待...(如果尚未安装 redis，请使用命令: make redis.install 进行安装)"
+	docker start $(redis_deamon)
+	docker ps -a | grep $(redis_deamon)
+
+redis.stop:
+	@echo "正在关闭redis，请耐心等待...(如果尚未安装 redis，请使用命令: make redis.install 进行安装)"
+	docker stop $(redis_deamon) || true
