@@ -2,12 +2,17 @@ mysql_deamon = ys-mysql
 mysql_image = daocloud.io/mysql:5.6
 mysql_port = 3308
 
-default:
+redis_deamon = ys-redis
+redis_image = redis:4.0.2
+redis_port = 6380
+
+install:
 	make mysql.rebuild
+	make redis.rebuild
 
 mysql.install:
 	make mysql.rebuild
-
+	
 mysql.rebuild:
 	docker rm -vf $(mysql_deamon) || true
 	rm -rf ./docker_volumes/mysql
@@ -34,3 +39,10 @@ mysql.data:
 	mysql -f -h127.0.0.1 -P$(mysql_port) -uroot < ./sqls/demo.sql
 	mysql -f -h127.0.0.1 -P$(mysql_port) -uroot < ./sqls/demo_data.sql
 	
+redis.rebuild:
+	docker rm -vf $(redis_deamon) || true
+	docker pull $(redis_image)
+	docker run --name $(redis_deamon) -p $(redis_port):6379 -d $(redis_image)
+	@echo "正在启动redis，请耐心等待..."
+	sleep 10
+	docker ps -a | grep $(redis_deamon)
