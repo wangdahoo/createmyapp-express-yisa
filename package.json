@@ -9,7 +9,6 @@
     "doc": "docute ./docs -p 4000"
   },
   "pre-commit": [
-    "test",
     "lint"
   ],
   "dependencies": {

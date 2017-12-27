@@ -57,7 +57,11 @@ function acquire (db) {
 
 module.exports = {
   acquire,
-  release: function () {
-    return pool.release
+  acquireRedisClient: acquire,
+  release: function (client) {
+    pool.release(client)
+  },
+  releaseRedisClient: function (client) {
+    pool.release(client)
   }
 }
