@@ -1,7 +1,7 @@
 const redis = require('redis')
 const bluebird = require('bluebird')
 const genericPool = require('generic-pool')
-const config = require('../../config')
+const config = _config()
 const {connectionUri} = config[process.env.NODE_ENV === 'development' ? 'dev' : 'prod'].redis
 
 bluebird.promisifyAll(redis.RedisClient.prototype)

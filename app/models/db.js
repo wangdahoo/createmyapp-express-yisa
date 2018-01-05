@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const config = require('../../config')
+const config = _config()
 const {connectionUri} = config[process.env.NODE_ENV === 'development' ? 'dev' : 'prod'].mysql
 
 // only development configurations for this moment

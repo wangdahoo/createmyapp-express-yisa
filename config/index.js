@@ -9,9 +9,5 @@ module.exports = {
     }
   },
 
-  prod: {
-    mysql: {
-      connectionUri: '<production uri>'
-    }
-  }
+  prod: process.env.CONFIG_FILE ? require(process.env.CONFIG_FILE) : {}
 }

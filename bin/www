@@ -1,4 +1,13 @@
 #!/usr/bin/env node
+const path = require('path')
+global._require = (moduleName) => {
+  return moduleName.slice(0, 1) === '@'
+    ? require(path.join(__dirname, '../app', moduleName.slice(2)))
+    : require(moduleName)
+}
+global._config = () => {
+  return require(path.join(__dirname, '../config'))
+}
 
 const app = require('../app')
 const debug = require('debug')('createmyapp-express-yisa:server')

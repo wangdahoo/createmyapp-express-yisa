@@ -1,7 +1,8 @@
-process.env.NODE_ENV = 'development'
-const {acquire, release} = require('./redis')
+beforeAll(require('../../test').setup)
 
 test('redisHelper', () => {
+  const {acquire, release} = require('./redis')
+
   let client
   const foo = 'bar'
   const val = acquire()

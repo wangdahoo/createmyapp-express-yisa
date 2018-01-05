@@ -6,5 +6,9 @@ module.exports = {
   rules: {
     'camelcase': 0,
     'no-var': 2
+  },
+  globals: {
+    '_require': true,
+    '_config': true
   }
 }

@@ -1,13 +1,12 @@
 const express = require('express')
 const router = express.Router()
 
-const sum = require('../services/sum')
+const sum = _require('@/services/sum')
 
 router.get('/sum/:a/:b', (req, res, next) => {
-  const a = req.params.a
-  const b = req.params.b
+  const {a, b} = req.params
 
-  res.send(`result: ${sum(a, b)}`)
+  res.send(`result: ${sum(Number(a), Number(b))}`)
 })
 
 module.exports = router

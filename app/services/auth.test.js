@@ -1,8 +1,9 @@
-const auth = require('./auth')
-const UUID = require('uuid/v4')
-const { Employee } = require('../models')
+beforeAll(require('../../test').setup)
 
 test('verify', () => {
+  const auth = require('./auth')
+  const UUID = require('uuid/v4')
+  const { Employee } = require('../models')
   const getUid = auth.verify('wangdahoo', '123456')
   return expect(getUid).resolves.toBeGreaterThan(0)
 })

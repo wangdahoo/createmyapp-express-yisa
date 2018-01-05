@@ -1,5 +1,7 @@
 SET NAMES utf8;
 
+SET TIME_ZONE = '+8:00';
+
 CREATE DATABASE IF NOT EXISTS `demo` DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
 
 USE demo;

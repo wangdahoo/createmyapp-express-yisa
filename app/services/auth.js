@@ -1,5 +1,5 @@
 const md5 = require('md5')
-const { Employee } = require('../models')
+const { Employee } = _require('@/models')
 
 const verify = (username, password) => {
   return Employee.findOne({
